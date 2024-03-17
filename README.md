@@ -23,4 +23,4 @@ You can access these settings by going to **Settings** > **Options** > **Communi
 
 ## Support
 
-If you find this plugin useful and would like to support its development, you can sponsor me on Github, or buy me a coffee.
+If you find this plugin useful and would like to support its development, you can send me Crypto, or buy me a coffee.
