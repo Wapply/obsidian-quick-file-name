@@ -1,4 +1,4 @@
-import { App, Plugin, Notice, PluginSettingTab, Setting, addIcon } from 'obsidian';
+import { App, Plugin, Notice, PluginSettingTab, Setting, addIcon, TFile } from 'obsidian';
 import { RandomNoteNameGeneratorSettings, RandomNoteNameGeneratorSettingTab, DEFAULT_SETTINGS } from './settings';
 
 export default class RandomNoteNameGenerator extends Plugin {
@@ -42,20 +42,15 @@ export default class RandomNoteNameGenerator extends Plugin {
     async generateRandomNoteName() {
         const randomString = this.generateRandomString();
 
-        const existingFile = this.app.vault.getAbstractFileByPath(`${randomString}.md`);
-        if (existingFile) {
-            new Notice('A note with the generated name already exists.');
-            return;
-        }
-
         try {
-            await this.app.vault.create(`${randomString}.md`, '');
-            new Notice(`Created new note: ${randomString}.md`);
+            const file = await this.app.vault.create(randomString + '.md', '');
+            await this.app.workspace.activeLeaf?.openFile(file);
+            new Notice(`Opened new note: ${randomString}.md`);
         } catch (error) {
-            new Notice('Error creating new note');
-            console.error(error);
+            new Notice(`Error opening new note: ${error.message}`);
         }
     }
+    
 
     generateRandomString(): string {
         const { length, useUppercase, useLowercase, useNumbers, useSymbols } = this.settings;

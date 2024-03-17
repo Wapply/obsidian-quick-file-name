@@ -1,8 +1,8 @@
 {
 	"id": "quick-file-name",
 	"name": "Quick File Name",
-	"version": "1.0.0",
-	"description": "This plugin generates a note with an random string as name.",
+	"version": "1.0.1",
+	"description": "This plugin generates a note with a random string as its name.",
 	"author": "Wapply",
 	"authorUrl": "https://github.com/Wapply",
 	"fundingUrl": {
