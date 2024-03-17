@@ -12,7 +12,7 @@ export default class RandomNoteNameGenerator extends Plugin {
         this.addCommand({
             id: this.commandId,
             name: 'Generate Random Note Name',
-            hotkeys: [{ modifiers: ['Alt'], key: 'r' }],
+            hotkeys: [{ modifiers: ['Ctrl'], key: 'r' }],
             callback: () => this.generateRandomNoteName(),
         });
 
