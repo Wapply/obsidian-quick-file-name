@@ -1,15 +1,15 @@
-# obsidian-quick-file-name
+# ✨ Quick File Name ✨
 
-This plugin for Obsidian generates a note with a random string as its name.
+This plugin for Obsidian generates a note with a random string as its name. 📝
 
-## Usage
+## Usage 🚀
 
 After installing the plugin, you can generate a new random note by following these steps:
 
-1. Press `Ctrl + r` or use the **New Random Note** icon in the ribbon.
-2. A new note will be created with a randomly generated name.
+1. Press `Ctrl + r` or use the **New Random Note** icon in the ribbon. 🎲
+2. A new note will be created with a randomly generated name. 🎉
 
-## Settings
+## Settings ⚙️
 
 The plugin provides the following settings to customize the generated note name:
 
@@ -19,11 +19,11 @@ The plugin provides the following settings to customize the generated note name:
 - **Use Numbers**: Include numbers in the random string.
 - **Use Symbols**: Include symbols in the random string.
 
-You can access these settings by going to **Settings** > **Options** > **Community Plugins** > **obsidian-quick-file-name**.
+You can access these settings by going to **Settings** > **Options** > **Community Plugins** > **obsidian-quick-file-name**. 🔧
 
-## Support
+## Support ☕
 
-If you find this plugin useful and would like to support its development, you can send me Crypto, or buy me a coffee.
+If you find this plugin useful and would like to support its development, you can send me Crypto, or buy me a coffee. ☕
 
 - Ko-Fi: https://ko-fi.com/wapply
 - Binance Wallet: 0x71ad70e676c95a84ff097025bcbc29b9d9b4a7bc
