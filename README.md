@@ -6,7 +6,7 @@ This plugin for Obsidian generates a note with a random string as its name.
 
 After installing the plugin, you can generate a new random note by following these steps:
 
-1. Press `Alt + r` or use the **New Random Note** icon in the ribbon.
+1. Press `Ctrl + r` or use the **New Random Note** icon in the ribbon.
 2. A new note will be created with a randomly generated name.
 
 ## Settings
