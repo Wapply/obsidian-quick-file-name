@@ -25,5 +25,5 @@ You can access these settings by going to **Settings** > **Options** > **Communi
 
 If you find this plugin useful and would like to support its development, you can send me Crypto, or buy me a coffee.
 
-- Binance Wallet: 0x71ad70e676c95a84ff097025bcbc29b9d9b4a7bc
 - Ko-Fi: https://ko-fi.com/wapply
+- Binance Wallet: 0x71ad70e676c95a84ff097025bcbc29b9d9b4a7bc
