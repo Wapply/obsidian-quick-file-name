@@ -41,10 +41,11 @@ export default class RandomNoteNameGenerator extends Plugin {
 
     async generateRandomNoteName() {
         const randomString = this.generateRandomString();
-
+    
         try {
             const file = await this.app.vault.create(randomString + '.md', '');
-            await this.app.workspace.activeLeaf?.openFile(file);
+            const leaf = this.app.workspace.getLeaf();
+            await leaf.openFile(file); // Open the newly created note
             new Notice(`Opened new note: ${randomString}.md`);
         } catch (error) {
             new Notice(`Error opening new note: ${error.message}`);
