@@ -5,6 +5,9 @@
 	"description": "This plugin generates a note with an random string as name.",
 	"author": "Wapply",
 	"authorUrl": "https://github.com/Wapply",
+	"fundingUrl": {
+		"Buy Me a Coffee": "https://ko-fi.com/wapply"
+	},
 	"minimumCompatibleVersion": "0.11.13",
 	"compatible": true,
 	"main": "main.js",
