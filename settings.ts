@@ -30,7 +30,7 @@ export class RandomNoteNameGeneratorSettingTab extends PluginSettingTab {
 
         containerEl.empty();
 
-        containerEl.createEl('h2', { text: 'Random Note Name Generator Settings' });
+        containerEl.createEl('h2', { text: 'Quick File Name Settings' });
 
         new Setting(containerEl)
             .setName('Length')
