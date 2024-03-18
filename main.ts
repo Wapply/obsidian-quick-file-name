@@ -8,7 +8,6 @@ export default class RandomNoteNameGenerator extends Plugin {
     async onload() {
         await this.loadSettings();
 
-        this.commandId = 'generate-random-note-name';
         this.addCommand({
             id: this.commandId,
             name: 'Generate Random Note Name',
