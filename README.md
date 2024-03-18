@@ -27,3 +27,5 @@ If you find this plugin useful and would like to support its development, you ca
 
 - Ko-Fi: https://ko-fi.com/wapply
 - Binance Wallet: 0x71ad70e676c95a84ff097025bcbc29b9d9b4a7bc
+
+<a href='https://ko-fi.com/H2H0VSNUJ' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
