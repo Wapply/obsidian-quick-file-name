@@ -1,4 +1,4 @@
-import { App, Plugin, Notice, PluginSettingTab, Setting, addIcon, TFile } from 'obsidian';
+import { App, Plugin, Notice, PluginSettingTab, Setting, addIcon, TFolder } from 'obsidian';
 import { RandomNoteNameGeneratorSettings, RandomNoteNameGeneratorSettingTab, DEFAULT_SETTINGS } from './settings';
 
 export default class RandomNoteNameGenerator extends Plugin {
@@ -11,7 +11,6 @@ export default class RandomNoteNameGenerator extends Plugin {
         this.addCommand({
             id: this.commandId,
             name: 'Generate Random Note Name',
-            hotkeys: [{ modifiers: ['Ctrl'], key: 'r' }],
             callback: () => this.generateRandomNoteName(),
         });
 
@@ -28,6 +27,9 @@ export default class RandomNoteNameGenerator extends Plugin {
         this.addRibbonIcon('infinity', 'New Random Note', () => {
             this.generateRandomNoteName();
         });
+
+        // Listen for keydown events globally
+        document.addEventListener('keydown', this.handleKeyDown.bind(this));
     }
 
     async loadSettings() {
@@ -42,7 +44,8 @@ export default class RandomNoteNameGenerator extends Plugin {
         const randomString = this.generateRandomString();
     
         try {
-            const file = await this.app.vault.create(randomString + '.md', '');
+            const parentFolder = this.app.fileManager.getNewFileParent('');
+            const file = await this.app.vault.create(`${parentFolder.path}/${randomString}.md`, '');
             const leaf = this.app.workspace.getLeaf();
             await leaf.openFile(file); // Open the newly created note
             new Notice(`Opened new note: ${randomString}.md`);
@@ -50,7 +53,6 @@ export default class RandomNoteNameGenerator extends Plugin {
             new Notice(`Error opening new note: ${error.message}`);
         }
     }
-    
 
     generateRandomString(): string {
         const { length, useUppercase, useLowercase, useNumbers, useSymbols } = this.settings;
@@ -66,5 +68,12 @@ export default class RandomNoteNameGenerator extends Plugin {
         }
 
         return result;
+    }
+
+    handleKeyDown(event: KeyboardEvent) {
+        // Check if the configured hotkey combination is pressed
+        if (this.settings.useHotkey && event.key === this.settings.hotkey) {
+            this.generateRandomNoteName();
+        }
     }
 }

@@ -1,4 +1,4 @@
-import { App, PluginSettingTab, Setting } from 'obsidian';
+import { App, PluginSettingTab, Setting, TextComponent } from 'obsidian';
 import RandomNoteNameGenerator from './main';
 
 export interface RandomNoteNameGeneratorSettings {
@@ -7,18 +7,23 @@ export interface RandomNoteNameGeneratorSettings {
     useLowercase: boolean;
     useNumbers: boolean;
     useSymbols: boolean;
+    useHotkey: boolean; // New setting to control hotkey usage
+    hotkey: string; // New setting to define custom hotkey
 }
 
 export const DEFAULT_SETTINGS: RandomNoteNameGeneratorSettings = {
-    length: 10,
+    length: 8,
     useUppercase: true,
-    useLowercase: true,
-    useNumbers: false,
+    useLowercase: false,
+    useNumbers: true,
     useSymbols: false,
+    useHotkey: false, // Default to not using hotkey
+    hotkey: 'Ctrl+R', // Default hotkey, can be customized by the user
 };
 
 export class RandomNoteNameGeneratorSettingTab extends PluginSettingTab {
     plugin: RandomNoteNameGenerator;
+    hotkeyInput: HTMLInputElement;
 
     constructor(app: App, plugin: RandomNoteNameGenerator) {
         super(app, plugin);
@@ -29,8 +34,6 @@ export class RandomNoteNameGeneratorSettingTab extends PluginSettingTab {
         const { containerEl } = this;
 
         containerEl.empty();
-
-        containerEl.createEl('h2', { text: 'Quick File Name Settings' });
 
         new Setting(containerEl)
             .setName('Length')
@@ -92,5 +95,55 @@ export class RandomNoteNameGeneratorSettingTab extends PluginSettingTab {
                         await this.plugin.saveSettings();
                     })
             );
+            new Setting(containerEl)
+            .setName('Use Hotkey')
+            .setDesc('Enable hotkey for generating random note names')
+            .addToggle((toggle) =>
+                toggle
+                    .setValue(this.plugin.settings.useHotkey)
+                    .onChange(async (value) => {
+                        this.plugin.settings.useHotkey = value;
+                        await this.plugin.saveSettings();
+                        this.toggleHotkeyInput(value);
+                    })
+            );
+
+        const hotkeySetting = new Setting(containerEl)
+            .setName('Hotkey')
+            .setDesc('Define a custom hotkey for generating random note names');
+
+        this.hotkeyInput = hotkeySetting
+            .addText((text) => {
+                text.inputEl.placeholder = 'Press a key combination...';
+                text.inputEl.value = this.plugin.settings.hotkey;
+                text.inputEl.readOnly = !this.plugin.settings.useHotkey;
+                text.inputEl.addEventListener('focus', () => {
+                    text.inputEl.value = '';
+                    text.inputEl.readOnly = false;
+                    text.inputEl.focus();
+                });
+                text.inputEl.addEventListener('keydown', (event) => {
+                    const { key, ctrlKey, shiftKey, altKey, metaKey } = event;
+                    const modifiers = [];
+                    if (ctrlKey) modifiers.push('Ctrl');
+                    if (shiftKey) modifiers.push('Shift');
+                    if (altKey) modifiers.push('Alt');
+                    if (metaKey) modifiers.push('Cmd');
+                    const hotkey = [...modifiers, key].join('+');
+                    text.inputEl.value = hotkey;
+                    this.plugin.settings.hotkey = hotkey;
+                    this.plugin.saveSettings();
+                    event.preventDefault(); // Prevent the browser's default behavior
+                    event.stopPropagation(); // Stop the event from propagating
+                });
+                return text;
+            })
+            .descEl.querySelector('input') as HTMLInputElement;
+
+        this.toggleHotkeyInput(this.plugin.settings.useHotkey);
+    }
+
+    toggleHotkeyInput(enabled: boolean): void {
+        this.hotkeyInput.readOnly = !enabled;
     }
 }
