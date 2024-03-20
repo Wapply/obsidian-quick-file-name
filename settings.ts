@@ -10,10 +10,10 @@ export interface RandomNoteNameGeneratorSettings {
 }
 
 export const DEFAULT_SETTINGS: RandomNoteNameGeneratorSettings = {
-    length: 10,
+    length: 8,
     useUppercase: true,
-    useLowercase: true,
-    useNumbers: false,
+    useLowercase: false,
+    useNumbers: true,
     useSymbols: false,
 };
 
