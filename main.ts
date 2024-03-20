@@ -4,6 +4,7 @@ import { RandomNoteNameGeneratorSettings, RandomNoteNameGeneratorSettingTab, DEF
 export default class RandomNoteNameGenerator extends Plugin {
     settings: RandomNoteNameGeneratorSettings;
     commandId: string;
+    handleKeyDown: any;
 
     async onload() {
         await this.loadSettings();
@@ -68,12 +69,5 @@ export default class RandomNoteNameGenerator extends Plugin {
         }
 
         return result;
-    }
-
-    handleKeyDown(event: KeyboardEvent) {
-        // Check if the configured hotkey combination is pressed
-        if (this.settings.useHotkey && event.key === this.settings.hotkey) {
-            this.generateRandomNoteName();
-        }
     }
 }
