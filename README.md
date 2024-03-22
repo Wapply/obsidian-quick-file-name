@@ -1,5 +1,4 @@
 <h1 align=center>♾️ Quick File Name 📝</h1>
-
 ## Usage 🚀
 
 After installing the plugin, you can generate a new random note by following these steps:
