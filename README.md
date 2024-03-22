@@ -9,7 +9,7 @@ After installing the plugin, you can generate a new random note by following the
 1. Use the **New Random Note** icon in the ribbon. 🎲
 2. A new note will be created with a randomly generated name. 🎉
 
-https://github.com/Wapply/obsidian-quick-file-name/assets/88293580/c1f65177-1206-4cc9-a5a8-32c508236d6f
+![demo_quick-file-name](https://github.com/Wapply/obsidian-quick-file-name/assets/88293580/8cc53b03-3495-41e5-b9d8-5753be359e20)
 
 ## Settings ⚙️
 
