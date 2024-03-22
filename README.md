@@ -1,4 +1,8 @@
 <h1 align=center>♾️ Quick File Name 📝</h1>
+<p align=center>
+    Generates a note with an random string as file name.
+</p>
+
 ## Usage 🚀
 
 After installing the plugin, you can generate a new random note by following these steps:
