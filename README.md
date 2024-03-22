@@ -1,6 +1,4 @@
-# ♾️ Quick File Name 📝
-
-This plugin for Obsidian generates a note with a random string as its name. 📝
+<h1 align=center>♾️ Quick File Name 📝</h1>
 
 ## Usage 🚀
 
