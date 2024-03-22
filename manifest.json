@@ -9,7 +9,7 @@
 		"Buy Me a Coffee": "https://ko-fi.com/wapply"
 	},
 	"minAppVersion": "1.5.11",
-	"isDesktopOnly": true,
+	"isDesktopOnly": false,
 	"main": "main.js",
 	"settings": "settings.js",
 	"workspace": true
