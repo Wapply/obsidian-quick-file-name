@@ -1,6 +1,6 @@
 <h1 align=center>♾️ Quick File Name 📝</h1>
 <p align=center>
-    Generates a note with an random string as file name.
+    Generates a note with an random string as it's file name.
 </p>
 
 ## Usage 🚀
